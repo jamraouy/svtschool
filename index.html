@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratoire numérique SVT</title>
+<meta name="description" content="Explorer, expérimenter et comprendre les phénomènes scientifiques : animations SVT pour le collège.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b2a5b;--navy2:#123c7c;--blue:#1f6fd1;--sky:#e8f1fd;--sky2:#d3e5fb;
+  --green:#1e9e6a;--green2:#e3f6ee;--amber:#9a5b00;--abg:#fff3dd;
+  --bg:#f5f8fc;--card:#ffffff;--ink:#11223f;--muted:#5a6b86;--line:#dbe4f0;
+  --shadow:0 1px 2px rgba(11,42,91,.06),0 8px 24px rgba(11,42,91,.08);
+  --r:16px
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.ar{font-family:"Noto Kufi Arabic",sans-serif;direction:rtl;unicode-bidi:isolate}
+[hidden]{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* Header */
+header.top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1a5aa8 100%);color:#fff}
+.bar{display:flex;align-items:center;gap:12px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:800;letter-spacing:.02em}
+.logo svg{flex:none}
+.logo small{display:block;font-weight:500;font-size:12px;opacity:.75;letter-spacing:0}
+.bar .sp{flex:1}
+.home-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;padding:7px 14px;font-size:14px;display:flex;gap:6px;align-items:center;text-decoration:none}
+.home-btn:hover{background:rgba(255,255,255,.2)}
+.hero{padding:26px 0 34px}
+.hero h1{font-size:clamp(26px,5vw,44px);line-height:1.1;margin:0 0 8px;letter-spacing:-.01em}
+.hero p{margin:0;opacity:.85;font-size:clamp(15px,2.2vw,18px)}
+.hero .accent{color:#7fe0b4}
+.searchbox{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap;max-width:780px}
+.searchbox .field{flex:1 1 260px;position:relative}
+.searchbox input{width:100%;border:0;border-radius:12px;padding:13px 14px 13px 42px;font:inherit;color:var(--ink);background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.searchbox .field svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.searchbox select{border:0;border-radius:12px;padding:12px;font:inherit;color:var(--ink);background:#fff;flex:0 1 auto;min-width:0}
+.stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:14px;opacity:.9}
+.stats b{font-size:20px;display:block;line-height:1.1}
+
+/* Breadcrumb */
+nav.crumbs{font-size:14px;color:var(--muted);padding:16px 0 4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+nav.crumbs a{color:var(--blue);text-decoration:none}
+nav.crumbs a:hover{text-decoration:underline}
+nav.crumbs .sep{opacity:.5}
+
+main{padding-bottom:56px;min-height:50vh}
+h2.sec{font-size:22px;margin:26px 0 14px;color:var(--navy)}
+
+/* Level cards */
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:-22px}
+.level{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;border:1px solid var(--line)}
+.level:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(11,42,91,.08),0 16px 34px rgba(11,42,91,.14)}
+.level .ill{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.level .ill .num{position:absolute;right:14px;top:10px;font-weight:800;font-size:46px;opacity:.18;color:#fff}
+.lv1 .ill{background:linear-gradient(135deg,#1e9e6a,#38c08a)}
+.lv2 .ill{background:linear-gradient(135deg,#1f6fd1,#4b97ee)}
+.lv3 .ill{background:linear-gradient(135deg,#0b2a5b,#3a5f9c)}
+.level .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.level h3{margin:0;font-size:21px;color:var(--navy)}
+.level .cls{font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.level p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.level .meta{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--blue)}
+.btn.ghost{background:var(--sky);color:var(--navy)}
+.btn.ghost:hover{background:var(--sky2)}
+.btn[aria-disabled="true"]{background:#c9d3e1;color:#5a6b86;pointer-events:none}
+
+/* Level page */
+.lvhead{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:6px 0 4px}
+.lvhead h1{margin:0;font-size:clamp(24px,4vw,32px);color:var(--navy)}
+.lvhead .count{background:var(--green2);color:var(--green);font-weight:700;font-size:13px;border-radius:999px;padding:4px 10px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 6px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 16px;text-align:left;display:flex;flex-direction:column;min-width:170px;text-decoration:none;transition:all .2s}
+.tab .ar{font-size:15px;color:var(--navy);text-align:right}
+.tab span.fr{font-size:13px;color:var(--muted)}
+.tab:hover{border-color:var(--blue)}
+.tab[aria-current="true"]{background:var(--navy);border-color:var(--navy)}
+.tab[aria-current="true"] .ar,.tab[aria-current="true"] span.fr{color:#fff}
+.unit{margin-top:24px}
+.unit h3{font-size:18px;margin:0 0 12px;color:var(--navy);display:flex;align-items:center;gap:10px}
+.unit h3::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.anim{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.anim:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.anim .th{aspect-ratio:16/10;background:#eef3fa center/cover no-repeat;position:relative}
+.anim .th .play{position:absolute;inset:auto 10px 10px auto;width:36px;height:36px;border-radius:50%;background:rgba(11,42,91,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.anim:hover .play{opacity:1}
+.anim .tt{padding:10px 12px 12px;font-weight:600;font-size:15px;color:var(--ink);line-height:1.35}
+.anim .tags{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 12px;margin-top:-4px}
+.tag{font-size:11.5px;font-weight:600;border-radius:999px;padding:2px 8px;background:var(--sky);color:var(--navy)}
+.tag.v{background:#fde8ef;color:#a8174a}
+.tag.a{background:var(--abg);color:var(--amber)}
+.empty{background:#fff;border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:var(--muted)}
+
+/* Player */
+.player{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;margin-top:8px}
+@media (max-width:900px){.player{grid-template-columns:1fr}}
+.stagewrap{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.stagebar{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.stagebar h1{font-size:18px;margin:0;flex:1 1 200px;color:var(--navy)}
+.stage{background:#0d1626;aspect-ratio:4/3;width:100%;position:relative;display:flex;align-items:center;justify-content:center}
+.stage > ruffle-player,.stage > video{width:100%;height:100%;display:block}
+.stage .msg{color:#e7eefb;text-align:center;padding:24px;max-width:460px}
+.stage .msg h4{margin:0 0 6px;font-size:18px}
+.stage .msg p{margin:0 0 12px;color:#b8c6de;font-size:14px}
+.spinner{width:42px;height:42px;border-radius:50%;border:4px solid rgba(255,255,255,.2);border-top-color:#7fe0b4;animation:spin 1s linear infinite;margin:0 auto 10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stagewrap:fullscreen{border-radius:0;display:flex;flex-direction:column}
+.stagewrap:fullscreen .stage{flex:1;aspect-ratio:auto}
+.stagewrap.pseudo-fs{position:fixed;inset:0;z-index:1000;border-radius:0;display:flex;flex-direction:column}
+.stagewrap.pseudo-fs .stage{flex:1;aspect-ratio:auto}
+.side{display:flex;flex-direction:column;gap:14px}
+.info{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+.info dt{color:var(--muted)}
+.info dd{margin:0;font-weight:600}
+.note{background:var(--abg);color:var(--amber);border-radius:12px;padding:10px 12px;font-size:14px}
+.tip{font-size:13px;color:var(--muted)}
+.nav2{display:flex;gap:8px}
+.nav2 a{flex:1}
+.list{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px}
+.list h4{margin:6px 8px 8px;font-size:14px;color:var(--muted);font-weight:600}
+.list a{display:block;padding:8px 10px;border-radius:10px;text-decoration:none;font-size:14px}
+.list a:hover{background:var(--sky)}
+.list a[aria-current="true"]{background:var(--navy);color:#fff}
+
+footer{background:var(--navy);color:#c9d6ee;font-size:14px;padding:22px 0}
+footer .wrap{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+footer a{color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:560px){
+  .tab{min-width:0;flex:1}
+  .stagebar .btn span{display:none}
+  .level .ill{height:96px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="#/" aria-label="Accueil du laboratoire">
+        <svg width="34" height="34" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#ffffff" fill-opacity=".14"/><path d="M19 9h10M21 9v10.5L12.6 34.2A3.5 3.5 0 0 0 15.6 39.5h16.8a3.5 3.5 0 0 0 3-5.3L27 19.5V9" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 30h16" stroke="#7fe0b4" stroke-width="2.6" stroke-linecap="round"/><circle cx="22" cy="34" r="1.8" fill="#7fe0b4"/><circle cx="27.5" cy="33" r="1.3" fill="#7fe0b4"/></svg>
+        <span>LABORATOIRE NUMÉRIQUE SVT<small>svtschool.com</small></span>
+      </a>
+      <span class="sp"></span>
+      <a class="home-btn" href="#/" id="homeBtn" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Accueil</a>
+    </div>
+    <div class="hero" id="hero">
+      <h1>LABORATOIRE NUMÉRIQUE SVT</h1>
+      <p>Explorer, expérimenter et <span class="accent">comprendre</span> les phénomènes scientifiques.</p>
+      <form class="searchbox" role="search" onsubmit="return false">
+        <div class="field">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <label class="sr" for="q">Rechercher une animation</label>
+          <input id="q" type="search" placeholder="Rechercher une animation (ex. séisme, digestion, mitose…)" autocomplete="off">
+        </div>
+        <label class="sr" for="fl">Niveau</label>
+        <select id="fl"><option value="">Tous les niveaux</option></select>
+        <label class="sr" for="fs">Semestre</label>
+        <select id="fs"><option value="">Tous les semestres</option><option value="s1">Premier semestre</option><option value="s2">Deuxième semestre</option></select>
+      </form>
+      <div class="stats" id="stats"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="app" tabindex="-1"></main>
+
+<footer>
+  <div class="wrap">
+    <span>Réalisé par <a href="https://svtschool.com" target="_blank" rel="noopener">svtschool.com</a></span>
+    <span>Animations Flash lues avec <a href="https://ruffle.rs" target="_blank" rel="noopener">Ruffle</a> · Crédits des sources d'origine conservés dans les animations</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+/* ------------------------------------------------------------------
+   CONFIGURATION
+   LABO_BASE : adresse du dossier qui contient swf/, media/ et thumbs/.
+   - Site hébergé tel quel (GitHub Pages, Netlify…) : laisser "".
+   - Code collé dans Blogger : mettre l'adresse GitHub Pages, ex.
+     "https://votre-nom.github.io/labo-svt/"
+------------------------------------------------------------------- */
+var LABO_BASE = window.LABO_BASE || "";
+var RUFFLE_URL = "https://unpkg.com/@ruffle-rs/ruffle@0.8.0-nightly.2026.10.15/ruffle.js";
+
+(function(){
+  "use strict";
+  var DATA = window.LABO_DATA || [];
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var app = $("#app"), hero = $("#hero"), homeBtn = $("#homeBtn");
+  var q = $("#q"), fl = $("#fl"), fs = $("#fs");
+  var url = function(p){ return LABO_BASE + p; };
+  var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+  var norm = function(s){ return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); };
+
+  /* Index of every animation with its context */
+  var ALL = [];
+  DATA.forEach(function(lv){
+    lv.semestres.forEach(function(se){
+      se.unites.forEach(function(u){
+        u.animations.forEach(function(a, i){
+          ALL.push({a: a, lv: lv, se: se, u: u, i: i});
+        });
+      });
+    });
+  });
+  var byId = {}; ALL.forEach(function(x){ byId[x.a.id] = x; });
+  var countLv = function(lv, se){ return ALL.filter(function(x){ return x.lv === lv && (!se || x.se === se); }).length; };
+
+  DATA.forEach(function(lv){ var o = document.createElement("option"); o.value = lv.id; o.textContent = lv.nom + " (" + lv.id.toUpperCase() + ")"; fl.appendChild(o); });
+  $("#stats").innerHTML =
+    '<div><b>' + ALL.length + '</b>animations disponibles</div>' +
+    '<div><b>' + DATA.filter(function(l){ return countLv(l); }).length + ' / ' + DATA.length + '</b>niveaux en ligne</div>' +
+    '<div><b>' + ALL.filter(function(x){ return x.a.type === "video"; }).length + '</b>vidéo</div>';
+
+  var ICONS = {
+    "1ac": '<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 50C14 30 28 14 50 14c0 22-16 36-36 36z"/><path d="M14 50L36 28"/><path d="M26 38h8M30 34v8" opacity=".6"/></svg>',
+    "2ac": '<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 50l14-22 8 10 8-16 22 28z"/><path d="M33 22l3-8 3 8" stroke="#ffd27a"/><path d="M36 10v-4M30 12l-3-3M42 12l3-3" stroke="#ffd27a"/></svg>',
+    "3ac": '<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8v14l-8 8M40 8v14l8 8"/><path d="M24 22c0 6 16 6 16 0"/><circle cx="32" cy="44" r="12"/><path d="M26 44h12M32 38v12" opacity=".6"/></svg>'
+  };
+
+  function crumbs(items){
+    return '<nav class="crumbs" aria-label="Fil d\'Ariane">' + items.map(function(it, i){
+      var last = i === items.length - 1;
+      return (i ? '<span class="sep" aria-hidden="true">›</span>' : '') + (last || !it[1] ? '<span' + (last ? ' aria-current="page"' : '') + '>' + esc(it[0]) + '</span>' : '<a href="' + it[1] + '">' + esc(it[0]) + '</a>');
+    }).join("") + '</nav>';
+  }
+
+  function card(x){
+    var a = x.a;
+    var tags = '<span class="tag">' + esc(x.lv.id.toUpperCase()) + ' · ' + (x.se.id === "s1" ? "S1" : "S2") + '</span>' +
+      (a.type === "video" ? '<span class="tag v">Vidéo</span>' : '') + (a.note ? '<span class="tag a">Étiquettes en arabe</span>' : '');
+    return '<a class="anim" href="#/anim/' + esc(a.id) + '">' +
+      '<div class="th" style="background-image:url(\'' + esc(url(a.vignette)) + '\')"><span class="play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M7 4l14 8-14 8z"/></svg></span></div>' +
+      '<div class="tt">' + esc(a.titre) + '</div><div class="tags">' + tags + '</div></a>';
+  }
+
+  /* ---------- Views ---------- */
+  function viewHome(){
+    hero.hidden = false; homeBtn.hidden = true;
+    var html = '<div class="levels">' + DATA.map(function(lv, i){
+      var n = countLv(lv);
+      return '<article class="level lv' + (i + 1) + '"><div class="ill">' + (ICONS[lv.id] || "") + '<span class="num">' + (i + 1) + '</span></div>' +
+        '<div class="body"><span class="cls">' + esc(lv.classe) + '</span><h3>' + esc(lv.nom) + '</h3><p>' + esc(lv.description) + '</p>' +
+        '<span class="meta">' + (n ? n + ' animations · 2 semestres' : 'En préparation') + '</span>' +
+        '<a class="btn" href="#/niveau/' + lv.id + '"' + (n ? '' : ' aria-disabled="true" tabindex="-1"') + '>' + (n ? 'Explorer les animations' : 'Bientôt disponible') +
+        ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>';
+    }).join("") + '</div>';
+    return html;
+  }
+
+  function viewLevel(lvId, seId){
+    var lv = DATA.filter(function(l){ return l.id === lvId; })[0];
+    if (!lv) return viewNotFound();
+    var se = lv.semestres.filter(function(s){ return s.id === seId; })[0] || lv.semestres[0];
+    hero.hidden = true; homeBtn.hidden = false;
+    var html = crumbs([["Accueil", "#/"], [lv.nom, "#/niveau/" + lv.id], [se.fr, null]]) +
+      '<div class="lvhead"><h1>' + esc(lv.nom) + ' · ' + esc(lv.id.toUpperCase()) + '</h1><span class="count">' + countLv(lv) + ' animations</span></div>' +
+      '<div class="tabs" role="tablist">' + lv.semestres.map(function(s){
+        return '<a class="tab" role="tab" href="#/niveau/' + lv.id + '/' + s.id + '" aria-current="' + (s === se) + '"><span class="ar" lang="ar">' + esc(s.ar) + '</span><span class="fr">' + esc(s.fr) + ' · ' + countLv(lv, s) + ' animations</span></a>';
+      }).join("") + '</div>';
+    if (!se.unites.length) html += '<div class="empty" style="margin-top:20px">Les animations de ce semestre seront bientôt disponibles.</div>';
+    se.unites.forEach(function(u){
+      html += '<section class="unit"><h3>' + esc(u.titre) + '</h3><div class="grid">' +
+        u.animations.map(function(a){ return card(byId[a.id]); }).join("") + '</div></section>';
+    });
+    return html;
+  }
+
+  function viewSearch(){
+    hero.hidden = false; homeBtn.hidden = false;
+    var term = norm(q.value.trim()), L = fl.value, S = fs.value;
+    var res = ALL.filter(function(x){
+      return (!L || x.lv.id === L) && (!S || x.se.id === S) &&
+        (!term || norm(x.a.titre + " " + x.u.titre).indexOf(term) !== -1);
+    });
+    return '<h2 class="sec">' + res.length + ' animation' + (res.length > 1 ? 's' : '') + ' trouvée' + (res.length > 1 ? 's' : '') + '</h2>' +
+      (res.length ? '<div class="grid">' + res.map(card).join("") + '</div>' :
+        '<div class="empty">Aucune animation ne correspond à votre recherche. Essayez un autre mot (ex. « volcan », « cellule »).</div>');
+  }
+
+  function viewNotFound(){
+    hero.hidden = true; homeBtn.hidden = false;
+    return crumbs([["Accueil", "#/"], ["Introuvable", null]]) + '<div class="empty" style="margin-top:20px">Cette page n\'existe pas. <a href="#/">Retour à l\'accueil</a></div>';
+  }
+
+  function viewAnim(id){
+    var x = byId[id]; if (!x) return viewNotFound();
+    hero.hidden = true; homeBtn.hidden = false;
+    var a = x.a, lv = x.lv, se = x.se, u = x.u;
+    var prev = u.animations[x.i - 1], next = u.animations[x.i + 1];
+    var html = crumbs([["Accueil", "#/"], [lv.nom, "#/niveau/" + lv.id], [se.fr, "#/niveau/" + lv.id + "/" + se.id], [a.titre, null]]) +
+      '<div class="player"><div><div class="stagewrap" id="sw">' +
+      '<div class="stagebar"><h1>' + esc(a.titre) + '</h1>' +
+      '<a class="btn ghost" href="#/niveau/' + lv.id + '/' + se.id + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>Retour à la liste</span></a>' +
+      '<button class="btn" id="fsBtn" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Plein écran</span></button></div>' +
+      '<div class="stage" id="stage"><div class="msg"><div class="spinner"></div><p>Chargement de l\'animation…</p></div></div></div></div>' +
+      '<aside class="side"><div class="info"><dl>' +
+      '<dt>Niveau</dt><dd>' + esc(lv.classe) + '</dd>' +
+      '<dt>Semestre</dt><dd>' + esc(se.fr) + ' · <span class="ar" lang="ar">' + esc(se.ar) + '</span></dd>' +
+      '<dt>Unité</dt><dd>' + esc(u.titre.replace(/^Unité \d+ : /, "")) + '</dd>' +
+      '<dt>Type</dt><dd>' + (a.type === "video" ? "Vidéo" : "Animation interactive") + '</dd></dl></div>' +
+      (a.description ? '<div class="info">' + esc(a.description) + '</div>' : '') +
+      (a.note ? '<div class="note">' + esc(a.note) + '</div>' : '') +
+      '<p class="tip">Astuce : cliquez dans l\'animation pour utiliser ses boutons (lecture, légendes…).</p>' +
+      '<div class="nav2">' + (prev ? '<a class="btn ghost" href="#/anim/' + esc(prev.id) + '">‹ Précédente</a>' : '') + (next ? '<a class="btn ghost" href="#/anim/' + esc(next.id) + '">Suivante ›</a>' : '') + '</div>' +
+      '<div class="list"><h4>' + esc(u.titre) + '</h4>' + u.animations.map(function(b){
+        return '<a href="#/anim/' + esc(b.id) + '" aria-current="' + (b === a) + '">' + esc(b.titre) + '</a>'; }).join("") + '</div></aside></div>';
+    setTimeout(function(){ mount(a); }, 0);
+    return html;
+  }
+
+  /* ---------- Player ---------- */
+  var rufflePromise = null;
+  function loadRuffle(){
+    if (window.RufflePlayer && window.RufflePlayer.newest) return Promise.resolve();
+    if (rufflePromise) return rufflePromise;
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = { autoplay: "on", unmuteOverlay: "visible", splashScreen: false, letterbox: "on",
+      contextMenu: "rightClickOnly", openUrlMode: "deny", showSwfDownload: false, warnOnUnsupportedContent: false, logLevel: "error" };
+    rufflePromise = new Promise(function(res, rej){
+      var s = document.createElement("script"); s.src = RUFFLE_URL; s.onload = res; s.onerror = rej; document.head.appendChild(s);
+    });
+    return rufflePromise;
+  }
+  function fail(stage, a, why){
+    stage.innerHTML = '<div class="msg"><h4>Animation indisponible</h4><p>' + esc(why) + '</p>' +
+      '<p>Vérifiez votre connexion puis réessayez. Si le problème continue, l\'animation sera remplacée prochainement.</p>' +
+      '<button class="btn ghost" type="button" id="retry">Réessayer</button></div>';
+    $("#retry", stage).onclick = function(){ stage.innerHTML = '<div class="msg"><div class="spinner"></div><p>Chargement…</p></div>'; mount(a); };
+  }
+  function mount(a){
+    var stage = $("#stage"); if (!stage) return;
+    if (a.type === "video") {
+      var v = document.createElement("video"); v.controls = true; v.playsInline = true; v.preload = "metadata"; v.src = url(a.fichier);
+      v.onerror = function(){ fail(stage, a, "La vidéo n'a pas pu être chargée."); };
+      stage.innerHTML = ""; stage.appendChild(v); return;
+    }
+    loadRuffle().then(function(){
+      if (!document.body.contains(stage)) return;
+      var player = window.RufflePlayer.newest().createPlayer();
+      stage.innerHTML = ""; stage.appendChild(player);
+      var p = player.ruffle ? player.ruffle().load({ url: url(a.fichier) }) : player.load({ url: url(a.fichier) });
+      Promise.resolve(p).catch(function(e){ fail(stage, a, "Le fichier de l'animation est introuvable ou n'a pas pu être lu."); });
+    }).catch(function(){ fail(stage, a, "Le lecteur Flash (Ruffle) n'a pas pu être chargé."); });
+    var btn = $("#fsBtn"), sw = $("#sw");
+    btn.onclick = function(){
+      var d = document;
+      if (d.fullscreenElement || d.webkitFullscreenElement) { (d.exitFullscreen || d.webkitExitFullscreen).call(d); return; }
+      if (sw.classList.contains("pseudo-fs")) { sw.classList.remove("pseudo-fs"); return; }
+      var req = sw.requestFullscreen || sw.webkitRequestFullscreen;
+      if (req) req.call(sw); else sw.classList.add("pseudo-fs");
+    };
+  }
+
+  /* ---------- Router ---------- */
+  function route(){
+    var h = location.hash.replace(/^#\/?/, "").split("/");
+    var html;
+    if (h[0] === "niveau") html = viewLevel(h[1], h[2]);
+    else if (h[0] === "anim") html = viewAnim(decodeURIComponent(h[1] || ""));
+    else if (h[0] === "recherche") html = viewSearch();
+    else html = viewHome();
+    app.innerHTML = html;
+    if (h[0] !== "recherche") { q.value = ""; }
+    if (h[0] === "anim" || h[0] === "niveau") window.scrollTo(0, 0);
+  }
+  function onSearch(){
+    if (q.value.trim() || fl.value || fs.value) {
+      if (location.hash !== "#/recherche") location.hash = "#/recherche"; else route();
+    } else if (location.hash === "#/recherche") location.hash = "#/";
+  }
+  q.addEventListener("input", onSearch); fl.addEventListener("change", onSearch); fs.addEventListener("change", onSearch);
+  window.addEventListener("hashchange", route);
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") { var sw = $("#sw"); if (sw && sw.classList.contains("pseudo-fs")) sw.classList.remove("pseudo-fs"); }
+  });
+  route();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+LABORATOIRE NUMÉRIQUE SVT — Réalisé par svtschool.com
+=====================================================
+
+CONTENU DU DOSSIER
+  index.html   la page du laboratoire (HTML + CSS + JavaScript, sans framework)
+  data.js      la liste des animations, classées par niveau / semestre / unité
+  swf/1ac/     32 animations Flash SVT 1 (version française)
+  swf/2ac/     44 animations Flash SVT 2 (version française)
+  media/       la vidéo de l'accouchement convertie en MP4
+  thumbs/      les vignettes des animations
+
+Les animations Flash sont lues par Ruffle (émulateur Flash gratuit), chargé
+automatiquement depuis Internet : aucun plugin à installer pour les élèves.
+
+IMPORTANT : ouvrir index.html par un double-clic ne lit PAS les animations
+(les navigateurs bloquent les fichiers locaux). Il faut mettre le dossier en ligne.
+
+
+ÉTAPE 1 — METTRE LE SITE EN LIGNE (GitHub Pages, gratuit)
+  1. Créez un compte sur https://github.com
+  2. Cliquez « New repository », nom : labo-svt, cochez « Public », « Create repository ».
+  3. Cliquez « uploading an existing file », glissez TOUT le contenu de ce dossier
+     (index.html, data.js et les dossiers swf, media, thumbs), puis « Commit changes ».
+     Astuce : si l'envoi par le navigateur échoue à cause du nombre de fichiers,
+     envoyez les dossiers un par un.
+  4. Settings > Pages > Source : « Deploy from a branch », Branch : main, dossier « / (root) », Save.
+  5. Après 1 à 2 minutes, le site est disponible à l'adresse :
+        https://VOTRE-NOM.github.io/labo-svt/
+
+ÉTAPE 2 — L'AFFICHER DANS BLOGGER (méthode recommandée : iframe)
+  1. Blogger > Pages > « Nouvelle page », titre : Laboratoire numérique SVT.
+  2. Passez en « Vue HTML » (icône crayon en haut à gauche > HTML).
+  3. Collez ce code (remplacez VOTRE-NOM) :
+
+<div style="position:relative;width:100%;height:90vh;min-height:620px">
+  <iframe src="https://VOTRE-NOM.github.io/labo-svt/" title="Laboratoire numérique SVT"
+    style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"
+    allow="fullscreen; autoplay" allowfullscreen loading="lazy"></iframe>
+</div>
+<p style="text-align:center"><a href="https://VOTRE-NOM.github.io/labo-svt/" target="_blank">Ouvrir le laboratoire en plein écran</a></p>
+
+  4. Publiez la page.
+
+AJOUTER UNE ANIMATION PLUS TARD
+  1. Placez le fichier .swf dans swf/1ac/ (ou 2ac, 3ac) et une image dans thumbs/.
+  2. Dans data.js, copiez une ligne existante dans la bonne unité et modifiez :
+       "id" (unique, sans espaces), "titre", "fichier", "vignette".
+     Champs facultatifs : "description" (texte affiché à côté du lecteur),
+     "note" (avertissement), "type": "video" pour un fichier MP4.
+  3. Renvoyez data.js (et les nouveaux fichiers) sur GitHub.
+
+CLASSEMENT
+  Le classement par semestres et unités est une proposition : déplacez librement
+  les lignes dans data.js pour suivre exactement votre progression.
+
+CRÉDITS
+  Les crédits des sources d'origine (eduMedia, NOAA, TERC, CNED, Claude Perrin,
+  nartimus, BENTOUMI…) sont conservés dans les animations.

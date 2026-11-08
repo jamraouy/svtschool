@@ -349,6 +349,20 @@ window.LABO_DATA = [
         "type": "swf",
         "fichier": "swf/2ac/les-types-d-ondes-sismiques.swf",
         "vignette": "thumbs/les-types-d-ondes-sismiques.jpg"
+       },
+       {
+        "id": "les-seismes-isoseistes-ondes-sismographe-et-repartition",
+        "titre": "Les séismes : isoséistes, ondes, sismographe et répartition",
+        "type": "swf",
+        "fichier": "swf/2ac/les-seismes-isoseistes-ondes-sismographe-et-repartition.swf",
+        "vignette": "thumbs/les-seismes-isoseistes-ondes-sismographe-et-repartition.jpg"
+       },
+       {
+        "id": "vitesse-des-ondes-sismiques-et-structure-interne-du-globe",
+        "titre": "Vitesse des ondes sismiques et structure interne du globe",
+        "type": "swf",
+        "fichier": "swf/2ac/vitesse-des-ondes-sismiques-et-structure-interne-du-globe.swf",
+        "vignette": "thumbs/vitesse-des-ondes-sismiques-et-structure-interne-du-globe.jpg"
        }
       ]
      },
@@ -662,6 +676,13 @@ window.LABO_DATA = [
         "type": "swf",
         "fichier": "swf/2ac/la-meiose.swf",
         "vignette": "thumbs/la-meiose.jpg"
+       },
+       {
+        "id": "le-crossing-over-prophase-i",
+        "titre": "Le crossing-over (prophase I)",
+        "type": "swf",
+        "fichier": "swf/2ac/le-crossing-over-prophase-i.swf",
+        "vignette": "thumbs/le-crossing-over-prophase-i.jpg"
        }
       ]
      }

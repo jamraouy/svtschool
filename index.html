@@ -74,6 +74,16 @@ h2.sec{font-size:22px;margin:26px 0 14px;color:var(--navy)}
 .btn.ghost:hover{background:var(--sky2)}
 .btn[aria-disabled="true"]{background:#c9d3e1;color:#5a6b86;pointer-events:none}
 
+
+/* Level covers (images cliquables) */
+.levels.covers{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.cover{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cover img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:#e8f1fd}
+.cover .cta{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;font-weight:700;color:#fff;background:var(--navy);transition:background .2s}
+.cover:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(11,42,91,.08),0 18px 38px rgba(11,42,91,.18)}
+.cover:hover .cta{background:var(--blue)}
+.cover:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
 /* Level page */
 .lvhead{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:6px 0 4px}
 .lvhead h1{margin:0;font-size:clamp(24px,4vw,32px);color:var(--navy)}
@@ -251,13 +261,11 @@ var RUFFLE_URL = "https://unpkg.com/@ruffle-rs/ruffle@0.8.0-nightly.2026.10.15/r
   /* ---------- Views ---------- */
   function viewHome(){
     hero.hidden = false; homeBtn.hidden = true;
-    var html = '<div class="levels">' + DATA.map(function(lv, i){
-      var n = countLv(lv);
-      return '<article class="level lv' + (i + 1) + '"><div class="ill">' + (ICONS[lv.id] || "") + '<span class="num">' + (i + 1) + '</span></div>' +
-        '<div class="body"><span class="cls">' + esc(lv.classe) + '</span><h3>' + esc(lv.nom) + '</h3><p>' + esc(lv.description) + '</p>' +
-        '<span class="meta">' + (n ? n + ' animations · 2 semestres' : 'En préparation') + '</span>' +
-        '<a class="btn" href="#/niveau/' + lv.id + '"' + (n ? '' : ' aria-disabled="true" tabindex="-1"') + '>' + (n ? 'Explorer les animations' : 'Bientôt disponible') +
-        ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>';
+    var html = '<div class="levels covers">' + DATA.map(function(lv, i){
+      var n = countLv(lv), href = '#/niveau/' + lv.id;
+      return '<a class="cover" href="' + href + '" aria-label="' + esc(lv.nom + ' : ' + lv.classe + ', ' + n + ' animations') + '">' +
+        '<img src="' + esc(url('covers/' + lv.id + '.jpg')) + '" alt="' + esc(lv.nom + ' – ' + lv.description) + '" width="1200" height="800" loading="' + (i ? 'lazy' : 'eager') + '">' +
+        '<span class="cta">Explorer les animations <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>';
     }).join("") + '</div>';
     return html;
   }

@@ -242,7 +242,7 @@ var RUFFLE_URL = "https://unpkg.com/@ruffle-rs/ruffle@0.8.0-nightly.2026.10.15/r
   function card(x){
     var a = x.a;
     var tags = '<span class="tag">' + esc(x.lv.id.toUpperCase()) + ' · ' + (x.se.id === "s1" ? "S1" : "S2") + '</span>' +
-      (a.type === "video" ? '<span class="tag v">Vidéo</span>' : '') + (a.note ? '<span class="tag a">Étiquettes en arabe</span>' : '');
+      (a.type === "video" ? '<span class="tag v">Vidéo</span>' : '') + (a.note ? '<span class="tag a">' + (/Cours complet/.test(a.note) ? 'En arabe' : 'Étiquettes en arabe') + '</span>' : '');
     return '<a class="anim" href="#/anim/' + esc(a.id) + '">' +
       '<div class="th" style="background-image:url(\'' + esc(url(a.vignette)) + '\')"><span class="play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M7 4l14 8-14 8z"/></svg></span></div>' +
       '<div class="tt">' + esc(a.titre) + '</div><div class="tags">' + tags + '</div></a>';

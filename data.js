@@ -694,19 +694,428 @@ window.LABO_DATA = [
   "id": "3ac",
   "nom": "Flash SVT 3",
   "classe": "3e année du collège (3AC)",
-  "description": "La nutrition, la communication nerveuse, l'immunité et l'information génétique. Bientôt disponible.",
+  "description": "La nutrition (digestion, respiration, circulation), la communication nerveuse, les organes des sens et l'immunité.",
   "semestres": [
    {
     "id": "s1",
     "fr": "Premier semestre",
     "ar": "الدورة الأولى",
-    "unites": []
+    "unites": [
+     {
+      "titre": "Unité 1 : L'alimentation et la digestion",
+      "animations": [
+       {
+        "id": "les-groupes-d-aliments",
+        "titre": "Les groupes d'aliments",
+        "type": "swf",
+        "fichier": "swf/3ac/les-groupes-d-aliments.swf",
+        "vignette": "thumbs/les-groupes-d-aliments.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "l-indice-de-masse-corporelle",
+        "titre": "L'indice de masse corporelle",
+        "type": "swf",
+        "fichier": "swf/3ac/l-indice-de-masse-corporelle.swf",
+        "vignette": "thumbs/l-indice-de-masse-corporelle.jpg"
+       },
+       {
+        "id": "l-appareil-digestif-3ac",
+        "titre": "L'appareil digestif",
+        "type": "swf",
+        "fichier": "swf/1ac/l-appareil-digestif.swf",
+        "vignette": "thumbs/l-appareil-digestif-3ac.jpg"
+       },
+       {
+        "id": "structure-du-tube-digestif-et-de-l-intestin-grele",
+        "titre": "Structure du tube digestif et de l'intestin grêle",
+        "type": "swf",
+        "fichier": "swf/3ac/structure-du-tube-digestif-et-de-l-intestin-grele.swf",
+        "vignette": "thumbs/structure-du-tube-digestif-et-de-l-intestin-grele.jpg"
+       },
+       {
+        "id": "le-mode-d-action-d-une-enzyme",
+        "titre": "Le mode d'action d'une enzyme",
+        "type": "swf",
+        "fichier": "swf/3ac/le-mode-d-action-d-une-enzyme.swf",
+        "vignette": "thumbs/le-mode-d-action-d-une-enzyme.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "action-de-l-amylase-sur-l-amidon",
+        "titre": "Action de l'amylase sur l'amidon",
+        "type": "swf",
+        "fichier": "swf/3ac/action-de-l-amylase-sur-l-amidon.swf",
+        "vignette": "thumbs/action-de-l-amylase-sur-l-amidon.jpg"
+       },
+       {
+        "id": "l-hydrolyse-de-l-amidon-par-l-amylase",
+        "titre": "L'hydrolyse de l'amidon par l'amylase",
+        "type": "swf",
+        "fichier": "swf/3ac/l-hydrolyse-de-l-amidon-par-l-amylase.swf",
+        "vignette": "thumbs/l-hydrolyse-de-l-amidon-par-l-amylase.jpg"
+       },
+       {
+        "id": "l-absorption-intestinale-et-la-circulation",
+        "titre": "L'absorption intestinale et la circulation",
+        "type": "swf",
+        "fichier": "swf/3ac/l-absorption-intestinale-et-la-circulation.swf",
+        "vignette": "thumbs/l-absorption-intestinale-et-la-circulation.jpg"
+       }
+      ]
+     },
+     {
+      "titre": "Unité 2 : La respiration et la circulation",
+      "animations": [
+       {
+        "id": "l-appareil-respiratoire-3ac",
+        "titre": "L'appareil respiratoire",
+        "type": "swf",
+        "fichier": "swf/1ac/l-appareil-respiratoire.swf",
+        "vignette": "thumbs/l-appareil-respiratoire-3ac.jpg"
+       },
+       {
+        "id": "les-echanges-gazeux-dans-les-alveoles-3ac",
+        "titre": "Les échanges gazeux dans les alvéoles",
+        "type": "swf",
+        "fichier": "swf/1ac/les-echanges-gazeux-dans-les-alveoles.swf",
+        "vignette": "thumbs/les-echanges-gazeux-dans-les-alveoles-3ac.jpg"
+       },
+       {
+        "id": "la-respiration-cellulaire-atp",
+        "titre": "La respiration cellulaire (ATP)",
+        "type": "swf",
+        "fichier": "swf/3ac/la-respiration-cellulaire-atp.swf",
+        "vignette": "thumbs/la-respiration-cellulaire-atp.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "la-circulation-sanguine-chez-l-homme",
+        "titre": "La circulation sanguine chez l'Homme",
+        "type": "swf",
+        "fichier": "swf/3ac/la-circulation-sanguine-chez-l-homme.swf",
+        "vignette": "thumbs/la-circulation-sanguine-chez-l-homme.jpg"
+       },
+       {
+        "id": "le-trajet-du-sang-dans-le-cur",
+        "titre": "Le trajet du sang dans le cœur",
+        "type": "swf",
+        "fichier": "swf/3ac/le-trajet-du-sang-dans-le-cur.swf",
+        "vignette": "thumbs/le-trajet-du-sang-dans-le-cur.jpg"
+       },
+       {
+        "id": "le-cycle-cardiaque",
+        "titre": "Le cycle cardiaque",
+        "type": "swf",
+        "fichier": "swf/3ac/le-cycle-cardiaque.swf",
+        "vignette": "thumbs/le-cycle-cardiaque.jpg"
+       },
+       {
+        "id": "les-echanges-entre-le-sang-et-les-cellules",
+        "titre": "Les échanges entre le sang et les cellules",
+        "type": "swf",
+        "fichier": "swf/3ac/les-echanges-entre-le-sang-et-les-cellules.swf",
+        "vignette": "thumbs/les-echanges-entre-le-sang-et-les-cellules.jpg"
+       },
+       {
+        "id": "circulation-et-echanges-gazeux-3ac",
+        "titre": "Circulation et échanges gazeux",
+        "type": "swf",
+        "fichier": "swf/1ac/circulation-et-echanges-gazeux.swf",
+        "vignette": "thumbs/circulation-et-echanges-gazeux-3ac.jpg"
+       }
+      ]
+     },
+     {
+      "titre": "Unité 3 : L'excrétion urinaire",
+      "animations": [
+       {
+        "id": "l-appareil-urinaire",
+        "titre": "L'appareil urinaire",
+        "type": "swf",
+        "fichier": "swf/3ac/l-appareil-urinaire.swf",
+        "vignette": "thumbs/l-appareil-urinaire.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "le-rein-et-la-formation-de-l-urine",
+        "titre": "Le rein et la formation de l'urine",
+        "type": "swf",
+        "fichier": "swf/3ac/le-rein-et-la-formation-de-l-urine.swf",
+        "vignette": "thumbs/le-rein-et-la-formation-de-l-urine.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       }
+      ]
+     }
+    ]
    },
    {
     "id": "s2",
     "fr": "Deuxième semestre",
     "ar": "الدورة الثانية",
-    "unites": []
+    "unites": [
+     {
+      "titre": "Unité 4 : Le système nerveux",
+      "animations": [
+       {
+        "id": "le-cerveau-humain",
+        "titre": "Le cerveau humain",
+        "type": "swf",
+        "fichier": "swf/3ac/le-cerveau-humain.swf",
+        "vignette": "thumbs/le-cerveau-humain.jpg"
+       },
+       {
+        "id": "du-cerveau-au-neurone",
+        "titre": "Du cerveau au neurone",
+        "type": "swf",
+        "fichier": "swf/3ac/du-cerveau-au-neurone.swf",
+        "vignette": "thumbs/du-cerveau-au-neurone.jpg"
+       },
+       {
+        "id": "les-lobes-du-cerveau",
+        "titre": "Les lobes du cerveau",
+        "type": "swf",
+        "fichier": "swf/3ac/les-lobes-du-cerveau.swf",
+        "vignette": "thumbs/les-lobes-du-cerveau.jpg"
+       },
+       {
+        "id": "les-aires-du-cerveau",
+        "titre": "Les aires du cerveau",
+        "type": "swf",
+        "fichier": "swf/3ac/les-aires-du-cerveau.swf",
+        "vignette": "thumbs/les-aires-du-cerveau.jpg"
+       },
+       {
+        "id": "les-constituants-du-nerf",
+        "titre": "Les constituants du nerf",
+        "type": "swf",
+        "fichier": "swf/3ac/les-constituants-du-nerf.swf",
+        "vignette": "thumbs/les-constituants-du-nerf.jpg"
+       },
+       {
+        "id": "les-types-de-neurones",
+        "titre": "Les types de neurones",
+        "type": "swf",
+        "fichier": "swf/3ac/les-types-de-neurones.swf",
+        "vignette": "thumbs/les-types-de-neurones.jpg"
+       },
+       {
+        "id": "le-message-nerveux",
+        "titre": "Le message nerveux",
+        "type": "swf",
+        "fichier": "swf/3ac/le-message-nerveux.swf",
+        "vignette": "thumbs/le-message-nerveux.jpg"
+       },
+       {
+        "id": "le-message-nerveux-et-la-synapse",
+        "titre": "Le message nerveux et la synapse",
+        "type": "swf",
+        "fichier": "swf/3ac/le-message-nerveux-et-la-synapse.swf",
+        "vignette": "thumbs/le-message-nerveux-et-la-synapse.jpg"
+       },
+       {
+        "id": "medicaments-et-synapse",
+        "titre": "Médicaments et synapse",
+        "type": "swf",
+        "fichier": "swf/3ac/medicaments-et-synapse.swf",
+        "vignette": "thumbs/medicaments-et-synapse.jpg"
+       },
+       {
+        "id": "le-systeme-nerveux-autonome",
+        "titre": "Le système nerveux autonome",
+        "type": "swf",
+        "fichier": "swf/3ac/le-systeme-nerveux-autonome.swf",
+        "vignette": "thumbs/le-systeme-nerveux-autonome.jpg"
+       }
+      ]
+     },
+     {
+      "titre": "Unité 5 : Motricité volontaire et réflexes",
+      "animations": [
+       {
+        "id": "la-motricite-volontaire",
+        "titre": "La motricité volontaire",
+        "type": "swf",
+        "fichier": "swf/3ac/la-motricite-volontaire.swf",
+        "vignette": "thumbs/la-motricite-volontaire.jpg"
+       },
+       {
+        "id": "les-muscles-antagonistes",
+        "titre": "Les muscles antagonistes",
+        "type": "swf",
+        "fichier": "swf/3ac/les-muscles-antagonistes.swf",
+        "vignette": "thumbs/les-muscles-antagonistes.jpg"
+       },
+       {
+        "id": "le-reflexe-rotulien",
+        "titre": "Le réflexe rotulien",
+        "type": "swf",
+        "fichier": "swf/3ac/le-reflexe-rotulien.swf",
+        "vignette": "thumbs/le-reflexe-rotulien.jpg"
+       },
+       {
+        "id": "la-moelle-epiniere-et-le-reflexe",
+        "titre": "La moelle épinière et le réflexe",
+        "type": "swf",
+        "fichier": "swf/3ac/la-moelle-epiniere-et-le-reflexe.swf",
+        "vignette": "thumbs/la-moelle-epiniere-et-le-reflexe.jpg"
+       }
+      ]
+     },
+     {
+      "titre": "Unité 6 : Les organes des sens",
+      "animations": [
+       {
+        "id": "les-constituants-de-l-il",
+        "titre": "Les constituants de l'œil",
+        "type": "swf",
+        "fichier": "swf/3ac/les-constituants-de-l-il.swf",
+        "vignette": "thumbs/les-constituants-de-l-il.jpg"
+       },
+       {
+        "id": "les-milieux-transparents-de-l-il",
+        "titre": "Les milieux transparents de l'œil",
+        "type": "swf",
+        "fichier": "swf/3ac/les-milieux-transparents-de-l-il.swf",
+        "vignette": "thumbs/les-milieux-transparents-de-l-il.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "la-retine-et-les-cellules-visuelles",
+        "titre": "La rétine et les cellules visuelles",
+        "type": "swf",
+        "fichier": "swf/3ac/la-retine-et-les-cellules-visuelles.swf",
+        "vignette": "thumbs/la-retine-et-les-cellules-visuelles.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "de-l-il-au-cerveau",
+        "titre": "De l'œil au cerveau",
+        "type": "swf",
+        "fichier": "swf/3ac/de-l-il-au-cerveau.swf",
+        "vignette": "thumbs/de-l-il-au-cerveau.jpg"
+       },
+       {
+        "id": "la-vision-du-stimulus-a-la-perception",
+        "titre": "La vision : du stimulus à la perception",
+        "type": "swf",
+        "fichier": "swf/3ac/la-vision-du-stimulus-a-la-perception.swf",
+        "vignette": "thumbs/la-vision-du-stimulus-a-la-perception.jpg"
+       },
+       {
+        "id": "l-oreille-et-l-audition",
+        "titre": "L'oreille et l'audition",
+        "type": "swf",
+        "fichier": "swf/3ac/l-oreille-et-l-audition.swf",
+        "vignette": "thumbs/l-oreille-et-l-audition.jpg"
+       },
+       {
+        "id": "l-audition-et-l-odorat",
+        "titre": "L'audition et l'odorat",
+        "type": "swf",
+        "fichier": "swf/3ac/l-audition-et-l-odorat.swf",
+        "vignette": "thumbs/l-audition-et-l-odorat.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       },
+       {
+        "id": "l-odorat",
+        "titre": "L'odorat",
+        "type": "swf",
+        "fichier": "swf/3ac/l-odorat.swf",
+        "vignette": "thumbs/l-odorat.jpg"
+       },
+       {
+        "id": "les-recepteurs-sensoriels-de-la-peau",
+        "titre": "Les récepteurs sensoriels de la peau",
+        "type": "swf",
+        "fichier": "swf/3ac/les-recepteurs-sensoriels-de-la-peau.swf",
+        "vignette": "thumbs/les-recepteurs-sensoriels-de-la-peau.jpg"
+       }
+      ]
+     },
+     {
+      "titre": "Unité 7 : L'immunité",
+      "animations": [
+       {
+        "id": "la-reaction-inflammatoire",
+        "titre": "La réaction inflammatoire",
+        "type": "swf",
+        "fichier": "swf/3ac/la-reaction-inflammatoire.swf",
+        "vignette": "thumbs/la-reaction-inflammatoire.jpg"
+       },
+       {
+        "id": "la-phagocytose",
+        "titre": "La phagocytose",
+        "type": "swf",
+        "fichier": "swf/3ac/la-phagocytose.swf",
+        "vignette": "thumbs/la-phagocytose.jpg"
+       },
+       {
+        "id": "les-etapes-de-la-phagocytose",
+        "titre": "Les étapes de la phagocytose",
+        "type": "swf",
+        "fichier": "swf/3ac/les-etapes-de-la-phagocytose.swf",
+        "vignette": "thumbs/les-etapes-de-la-phagocytose.jpg"
+       },
+       {
+        "id": "la-reponse-immunitaire-par-anticorps",
+        "titre": "La réponse immunitaire par anticorps",
+        "type": "swf",
+        "fichier": "swf/3ac/la-reponse-immunitaire-par-anticorps.swf",
+        "vignette": "thumbs/la-reponse-immunitaire-par-anticorps.jpg"
+       },
+       {
+        "id": "l-allergie",
+        "titre": "L'allergie",
+        "type": "swf",
+        "fichier": "swf/3ac/l-allergie.swf",
+        "vignette": "thumbs/l-allergie.jpg"
+       },
+       {
+        "id": "le-virus-du-sida-vih",
+        "titre": "Le virus du sida (VIH)",
+        "type": "swf",
+        "fichier": "swf/3ac/le-virus-du-sida-vih.swf",
+        "vignette": "thumbs/le-virus-du-sida-vih.jpg"
+       },
+       {
+        "id": "la-transfusion-sanguine",
+        "titre": "La transfusion sanguine",
+        "type": "swf",
+        "fichier": "swf/3ac/la-transfusion-sanguine.swf",
+        "vignette": "thumbs/la-transfusion-sanguine.jpg"
+       },
+       {
+        "id": "cours-d-immunologie-lycee-en-arabe",
+        "titre": "Cours d'immunologie (lycée, en arabe)",
+        "type": "swf",
+        "fichier": "swf/3ac/cours-d-immunologie-lycee-en-arabe.swf",
+        "vignette": "thumbs/cours-d-immunologie-lycee-en-arabe.jpg",
+        "note": "Cours complet en arabe (niveau lycée), avec narration audio. Non traduit."
+       }
+      ]
+     },
+     {
+      "titre": "Pour aller plus loin : l'ADN",
+      "animations": [
+       {
+        "id": "la-duplication-de-l-adn",
+        "titre": "La duplication de l'ADN",
+        "type": "swf",
+        "fichier": "swf/3ac/la-duplication-de-l-adn.swf",
+        "vignette": "thumbs/la-duplication-de-l-adn.jpg"
+       },
+       {
+        "id": "la-synthese-des-proteines",
+        "titre": "La synthèse des protéines",
+        "type": "swf",
+        "fichier": "swf/3ac/la-synthese-des-proteines.swf",
+        "vignette": "thumbs/la-synthese-des-proteines.jpg",
+        "note": "Certaines étiquettes de cette animation restent en arabe."
+       }
+      ]
+     }
+    ]
    }
   ]
  }
